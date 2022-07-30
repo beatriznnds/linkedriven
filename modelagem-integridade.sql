@@ -48,7 +48,7 @@ CREATE TYPE transaction AS ENUM ('deposit', 'withdraw');
 CREATE TABLE transactions (
     id SERIAL NOT NULL PRIMARY KEY,
     "bankAccountId" integer NOT NULL REFERENCES "bankAccount"(id),
-    amount number NOT NULL,
+    amount DECIMAL NOT NULL,
     type transaction,
     description text,
     cancelled boolean NOT NULL DEFAULT false
@@ -64,5 +64,5 @@ CREATE TABLE "creditCards" (
     "expirationMonth" varchar(2) NOT NULL,
     "expirationYear" varchar (4) NOT NULL,
     password varchar(4) NOT NULL,
-    limit number NOT NULL
+    "limit" integer NOT NULL
 );
